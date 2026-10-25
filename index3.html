@@ -1,0 +1,705 @@
+<title>Supi Barbershop | Premium Barber Shop</title> 
+ 
+<style> 
+    /* GENERAL SETTINGS */ 
+    * { 
+        margin: 0; 
+        padding: 0; 
+        box-sizing: border-box; 
+    } 
+ 
+    html { 
+        scroll-behavior: smooth; 
+        scroll-padding-top: 90px; 
+    } 
+ 
+    body { 
+        font-family: Arial, Helvetica, sans-serif; 
+        background-color: #111111; 
+        color: #f5f5f5; 
+        line-height: 1.6; 
+    } 
+ 
+    :root { 
+        --gold: #d4af37; 
+        --black: #111111; 
+        --dark: #191919; 
+        --white: #f5f5f5; 
+        --grey: #aaaaaa; 
+    } 
+ 
+    a { 
+        color: inherit; 
+        text-decoration: none; 
+    } 
+ 
+    .container { 
+        width: 90%; 
+        max-width: 1150px; 
+        margin: auto; 
+    } 
+ 
+    .gold { 
+        color: var(--gold); 
+    } 
+ 
+    .section { 
+        padding: 85px 0; 
+    } 
+ 
+    .section-heading { 
+        text-align: center; 
+        margin-bottom: 45px; 
+    } 
+ 
+    .section-heading h2 { 
+        font-size: 2.3rem; 
+        margin-bottom: 10px; 
+    } 
+ 
+    .section-heading p { 
+        color: var(--grey); 
+    } 
+ 
+    /* NAVIGATION BAR */ 
+    header { 
+        background-color: #080808; 
+        border-bottom: 1px solid #333333; 
+        position: sticky; 
+        top: 0; 
+        z-index: 100; 
+    } 
+ 
+    .navbar { 
+        min-height: 75px; 
+        display: flex; 
+        justify-content: space-between; 
+        align-items: center; 
+        gap: 20px; 
+    } 
+ 
+    .logo { 
+        font-size: 1.7rem; 
+        font-weight: bold; 
+        letter-spacing: 2px; 
+    } 
+ 
+    .logo span { 
+        color: var(--gold); 
+    } 
+ 
+    .nav-links { 
+        display: flex; 
+        list-style: none; 
+        gap: 25px; 
+    } 
+ 
+    .nav-links a { 
+        font-size: 0.9rem; 
+        transition: color 0.3s; 
+    } 
+ 
+    .nav-links a:hover { 
+        color: var(--gold); 
+    } 
+ 
+    /* BUTTONS */ 
+    .btn { 
+        display: inline-block; 
+        background-color: var(--gold); 
+        color: #111111; 
+        padding: 13px 24px; 
+        border-radius: 4px; 
+        font-weight: bold; 
+        transition: 0.3s; 
+    } 
+ 
+    .btn:hover { 
+        background-color: #f0d46a; 
+        transform: translateY(-2px); 
+    } 
+ 
+    .btn-outline { 
+        display: inline-block; 
+        border: 1px solid var(--gold); 
+        color: var(--gold); 
+        padding: 12px 23px; 
+        border-radius: 4px; 
+        font-weight: bold; 
+        margin-left: 10px; 
+        transition: 0.3s; 
+    } 
+ 
+    .btn-outline:hover { 
+        background-color: var(--gold); 
+        color: var(--black); 
+    } 
+ 
+    /* HOME SECTION */ 
+    .hero { 
+        min-height: 600px; 
+        display: flex; 
+        align-items: center; 
+        background: 
+            linear-gradient(90deg, #090909 5%, #090909e8 55%, #09090965 100%), 
+            url("https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=1800&q=85"); 
+        background-size: cover; 
+        background-position: center; 
+    } 
+ 
+    .hero-content { 
+        max-width: 680px; 
+        padding: 80px 0; 
+    } 
+ 
+    .eyebrow { 
+        color: var(--gold); 
+        font-size: 0.85rem; 
+        font-weight: bold; 
+        letter-spacing: 4px; 
+        text-transform: uppercase; 
+        margin-bottom: 18px; 
+    } 
+ 
+    .hero h1 { 
+        font-size: clamp(2.7rem, 6vw, 5rem); 
+        line-height: 1.08; 
+        margin-bottom: 22px; 
+    } 
+ 
+    .hero p { 
+        color: #cccccc; 
+        font-size: 1.1rem; 
+        max-width: 540px; 
+        margin-bottom: 30px; 
+    } 
+ 
+    /* SERVICES */ 
+    .services { 
+        background-color: var(--dark); 
+    } 
+ 
+    .cards { 
+        display: grid; 
+        grid-template-columns: repeat(3, 1fr); 
+        gap: 25px; 
+    } 
+ 
+    .card { 
+        background-color: #222222; 
+        padding: 30px; 
+        border: 1px solid #333333; 
+        border-radius: 7px; 
+        transition: 0.3s; 
+    } 
+ 
+    .card:hover { 
+        border-color: var(--gold); 
+        transform: translateY(-5px); 
+    } 
+ 
+    .service-number { 
+        color: var(--gold); 
+        font-size: 0.9rem; 
+        font-weight: bold; 
+        margin-bottom: 15px; 
+    } 
+ 
+    .card h3 { 
+        font-size: 1.3rem; 
+        margin-bottom: 12px; 
+    } 
+ 
+    .card p { 
+        color: var(--grey); 
+        font-size: 0.95rem; 
+    } 
+ 
+    /* PRICES */ 
+    .price-list { 
+        max-width: 750px; 
+        margin: auto; 
+        background-color: var(--dark); 
+        padding: 15px 30px; 
+        border-radius: 7px; 
+        border: 1px solid #333333; 
+    } 
+ 
+    .price-item { 
+        display: flex; 
+        justify-content: space-between; 
+        align-items: center; 
+        gap: 20px; 
+        padding: 20px 0; 
+        border-bottom: 1px solid #333333; 
+    } 
+ 
+    .price-item:last-child { 
+        border-bottom: none; 
+    } 
+ 
+    .price-item h3 { 
+        font-size: 1rem; 
+    } 
+ 
+    .price-item p { 
+        color: var(--grey); 
+        font-size: 0.85rem; 
+    } 
+ 
+    .price { 
+        color: var(--gold); 
+        font-size: 1.1rem; 
+        font-weight: bold; 
+        white-space: nowrap; 
+    } 
+ 
+    .price-note { 
+        text-align: center; 
+        color: var(--grey); 
+        margin-top: 20px; 
+        font-size: 0.85rem; 
+    } 
+ 
+    /* ABOUT US */ 
+    .about { 
+        background-color: var(--dark); 
+    } 
+ 
+    .about-content { 
+        display: grid; 
+        grid-template-columns: 1fr 1fr; 
+        align-items: center; 
+        gap: 50px; 
+    } 
+ 
+    .about-image { 
+        width: 100%; 
+        min-height: 350px; 
+        object-fit: cover; 
+        border-radius: 7px; 
+    } 
+ 
+    .about-text h2 { 
+        font-size: 2.3rem; 
+        margin-bottom: 20px; 
+    } 
+ 
+    .about-text p { 
+        color: var(--grey); 
+        margin-bottom: 18px; 
+    } 
+ 
+    .about-highlight { 
+        color: var(--gold); 
+        font-weight: bold; 
+    } 
+ 
+    /* CONTACT */ 
+    .contact-content { 
+        display: grid; 
+        grid-template-columns: 1fr 1fr; 
+        gap: 35px; 
+    } 
+ 
+    .contact-box { 
+        background-color: var(--dark); 
+        padding: 30px; 
+        border-radius: 7px; 
+        border: 1px solid #333333; 
+    } 
+ 
+    .contact-box h3 { 
+        color: var(--gold); 
+        margin-bottom: 20px; 
+    } 
+ 
+    .contact-detail { 
+        margin-bottom: 18px; 
+        color: #cccccc; 
+    } 
+ 
+    .contact-detail strong { 
+        display: block; 
+        color: var(--white); 
+        margin-bottom: 3px; 
+    } 
+ 
+    .contact-box .btn { 
+        margin-top: 10px; 
+    } 
+ 
+    /* FOOTER */ 
+    footer { 
+        background-color: #080808; 
+        border-top: 1px solid #333333; 
+        padding: 25px 0; 
+        text-align: center; 
+    } 
+ 
+    footer p { 
+        color: var(--grey); 
+        font-size: 0.85rem; 
+    } 
+ 
+    /* MOBILE PHONE LAYOUT */ 
+    @media (max-width: 800px) { 
+        .navbar { 
+            flex-direction: column; 
+            padding: 18px 0; 
+        } 
+ 
+        .nav-links { 
+            justify-content: center; 
+            flex-wrap: wrap; 
+            gap: 12px 18px; 
+        } 
+ 
+        .nav-links a { 
+            font-size: 0.85rem; 
+        } 
+ 
+        .cards { 
+            grid-template-columns: repeat(2, 1fr); 
+        } 
+ 
+        .about-content, 
+        .contact-content { 
+            grid-template-columns: 1fr; 
+        } 
+ 
+        .about-image { 
+            min-height: 280px; 
+        } 
+ 
+        .hero { 
+            min-height: 520px; 
+        } 
+    } 
+ 
+    @media (max-width: 520px) { 
+        .container { 
+            width: 92%; 
+        } 
+ 
+        .section { 
+            padding: 60px 0; 
+        } 
+ 
+        .logo { 
+            font-size: 1.5rem; 
+        } 
+ 
+        .cards { 
+            grid-template-columns: 1fr; 
+        } 
+ 
+        .hero h1 { 
+            font-size: 2.8rem; 
+        } 
+ 
+        .hero p { 
+            font-size: 1rem; 
+        } 
+ 
+        .btn, 
+        .btn-outline { 
+            padding: 12px 15px; 
+            font-size: 0.9rem; 
+        } 
+ 
+        .btn-outline { 
+            margin: 10px 0 0; 
+        } 
+ 
+        .price-list { 
+            padding: 10px 18px; 
+        } 
+ 
+        .price-item { 
+            gap: 12px; 
+        } 
+ 
+        .price-item h3 { 
+            font-size: 0.9rem; 
+        } 
+ 
+        .price { 
+            font-size: 1rem; 
+        } 
+ 
+        .section-heading h2, 
+        .about-text h2 { 
+            font-size: 1.9rem; 
+        } 
+    } 
+</style> 
+ <!-- NAVIGATION --> 
+<header> 
+    <nav class="navbar container"> 
+        <a href="#home" class="logo">Supi <span>CUTS.</span></a> 
+ 
+        <ul class="nav-links"> 
+            <li><a href="#home">Home</a></li> 
+            <li><a href="#services">Services</a></li> 
+            <li><a href="#prices">Prices</a></li> 
+            <li><a href="#about">About Us</a></li> 
+            <li><a href="#contact">Contact</a></li> 
+        </ul> 
+    </nav> 
+</header> 
+ 
+<!-- HOME --> 
+<main> 
+    <section class="hero" id="home"> 
+        <div class="container"> 
+            <div class="hero-content"> 
+                <p class="eyebrow">Premium Barber Shop</p> 
+ 
+                <h1>Look Sharp.<br> 
+                    <span class="gold">Feel Confident.</span> 
+                </h1> 
+ 
+                <p> 
+                    More than just a haircut. Experience quality grooming, 
+                    fresh styles and professional service at SUPI Cuts. 
+                </p> 
+ 
+                <a href="#prices" class="btn">View Our Prices</a> 
+                <a href="#contact" class="btn-outline">Contact Us</a> 
+            </div> 
+        </div> 
+    </section> 
+ 
+    <!-- SERVICES --> 
+    <section class="section services" id="services"> 
+        <div class="container"> 
+            <div class="section-heading"> 
+                <p class="eyebrow">What We Offer</p> 
+                <h2>Our <span class="gold">Services</span></h2> 
+                <p>Quality grooming to help you look your best.</p> 
+            </div> 
+ 
+            <div class="cards"> 
+                <article class="card"> 
+                    <p class="service-number">01 / HAIRCUTS</p> 
+                    <h3>Classic Haircut</h3> 
+                    <p>A clean, professional haircut styled to suit you.</p> 
+                </article> 
+ 
+                <article class="card"> 
+                    <p class="service-number">02 / FADES</p> 
+                    <h3>Fade Haircut</h3> 
+                    <p>Sharp fades and smooth blends for a fresh look.</p> 
+                </article> 
+ 
+                <article class="card"> 
+                    <p class="service-number">03 / BEARDS</p> 
+                    <h3>Beard Trim</h3> 
+                    <p>Keep your beard neat, shaped and looking sharp.</p> 
+                </article> 
+ 
+                <article class="card"> 
+                    <p class="service-number">04 / DETAILING</p> 
+                    <h3>Hairline &amp; Shape-Up</h3> 
+                    <p>Clean edges and detailed finishing for your style.</p> 
+                </article> 
+ 
+                <article class="card"> 
+                    <p class="service-number">05 / COMBOS</p> 
+                    <h3>Haircut &amp; Beard</h3> 
+                    <p>A complete grooming service in one appointment.</p> 
+                </article> 
+ 
+                <article class="card"> 
+                    <p class="service-number">06 / JUNIORS</p> 
+                    <h3>Kids' Haircut</h3> 
+                    <p>Fresh, comfortable haircuts for younger clients.</p> 
+                </article> 
+            </div> 
+        </div> 
+    </section> 
+ 
+    <!-- PRICES --> 
+    <section class="section" id="prices"> 
+        <div class="container"> 
+            <div class="section-heading"> 
+                <p class="eyebrow">Simple &amp; Fair</p> 
+                <h2>Our <span class="gold">Prices</span></h2> 
+                <p>Example prices in South African rand.</p> 
+            </div> 
+ 
+            <div class="price-list"> 
+                <div class="price-item"> 
+                    <div> 
+                        <h3>Classic Haircut</h3> 
+                        <p>A clean everyday cut</p> 
+                    </div> 
+                    <span class="price">R100</span> 
+                </div> 
+ 
+                <div class="price-item"> 
+                    <div> 
+                        <h3>Fade Haircut</h3> 
+                        <p>Detailed fade and blend</p> 
+                    </div> 
+                    <span class="price">R120</span> 
+                </div> 
+ 
+                <div class="price-item"> 
+                    <div> 
+                        <h3>Beard Trim</h3> 
+                        <p>Shape and tidy your beard</p> 
+                    </div> 
+                    <span class="price">R60</span> 
+                </div> 
+ 
+                <div class="price-item"> 
+                    <div> 
+                        <h3>Hairline &amp; Shape-Up</h3> 
+                        <p>Clean and detailed edges</p> 
+                    </div> 
+                    <span class="price">R50</span> 
+                </div> 
+ 
+                <div class="price-item"> 
+                    <div> 
+                        <h3>Haircut &amp; Beard Combo</h3> 
+                        <p>Complete grooming package</p> 
+                    </div> 
+                    <span class="price">R150</span> 
+                </div> 
+ 
+                <div class="price-item"> 
+                    <div> 
+                        <h3>Kids' Haircut</h3> 
+                        <p>For younger clients</p> 
+                    </div> 
+                    <span class="price">R80</span> 
+                </div> 
+            </div> 
+ 
+            <p class="price-note"> 
+                These are example prices for this demonstration website. 
+            </p> 
+        </div> 
+    </section> 
+ 
+    <!-- ABOUT US --> 
+    <section class="section about" id="about"> 
+        <div class="container about-content"> 
+            <img 
+                class="about-image" 
+                src="https://images.unsplash.com/photo-1621605815971-fbc98d665033?auto=format&fit=crop&w=1000&q=85" 
+                alt="Barber working on a client's haircut" 
+                loading="lazy" 
+            > 
+ 
+            <div class="about-text"> 
+                <p class="eyebrow">About SUPI Cuts</p> 
+ 
+                <h2>Style Meets <span class="gold">Precision.</span></h2> 
+ 
+                <p> 
+                    Welcome to SUPI Cuts, a fictional barber shop created 
+                    around one simple idea: every client deserves to leave 
+                    feeling confident. 
+                </p> 
+ 
+                <p> 
+                    Our example brand focuses on quality haircuts, 
+                    attention to detail and a welcoming atmosphere. 
+                    Whether you want a classic cut or a modern fade, 
+                    your style matters. 
+                </p> 
+ 
+                <p class="about-highlight"> 
+                    Your style. Your confidence. Your cut. 
+                </p> 
+ 
+                <a href="#contact" class="btn">Get In Touch</a> 
+            </div> 
+        </div> 
+    </section> 
+ 
+    <!-- CONTACT --> 
+    <section class="section" id="contact"> 
+        <div class="container"> 
+            <div class="section-heading"> 
+                <p class="eyebrow">Let's Connect</p> 
+                <h2>Visit <span class="gold">SUPI Cuts</span></h2> 
+                <p>Contact us to ask a question or arrange an appointment.</p> 
+            </div> 
+ 
+            <div class="contact-content"> 
+                <div class="contact-box"> 
+                    <h3>contact details</h3> 
+ 
+                    <div class="contact-detail"> 
+                        <strong>Phone / WhatsApp</strong> 
+                        <p>072 767 5871 (Steven)</p> 
+                    </div> 
+ 
+                    <div class="contact-detail"> 
+                        <strong></strong> 
+                        <p>123 Pineview North, Grabouw, South Africa</p> 
+                    </div> 
+ 
+                    <div class="0727675871"> 
+                        <strong>Opening Hours</strong> 
+                        <p>Monday – Friday: 09:00 – 18:00</p> 
+                        <p>Saturday: 09:00 – 16:00</p> 
+                        <p>Sunday: Closed</p> 
+                    </div> 
+ 
+                    <a 
+                        class="btn" 
+                        href="https://wa.me/27712345678?text=Hi%20SUPI%20Cuts%2C%20I%20would%20like%20to%20ask%20about%20an%20appointment." 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                    > 
+                        Message Us on WhatsApp 
+                    </a> 
+                </div> 
+ 
+                <div class="0727675871"> 
+                    <h3>Why Choose Us?</h3> 
+ 
+                    <div class="contact-detail"> 
+                        <strong>Professional Service</strong> 
+                        <p>Friendly service and attention to detail.</p> 
+                    </div> 
+ 
+                    <div class="contact-detail"> 
+                        <strong>Fresh Styles</strong> 
+                        <p>Classic cuts and modern styles to choose from.</p> 
+                    </div> 
+ 
+                    <div class="contact-detail"> 
+                        <strong>Clear Pricing</strong> 
+                        <p>Example prices displayed before you book.</p> 
+                    </div> 
+ 
+                    <div class="contact-detail"> 
+                        <strong>Easy Communication</strong> 
+                        <p>Contact us directly using the WhatsApp button.</p> 
+                    </div> 
+                </div> 
+            </div> 
+        </div> 
+    </section> 
+</main> 
+ 
+<!-- FOOTER --> 
+<footer> 
+    <div class="container"> 
+        <p> 
+            &copy; 2026 SUPI Cuts. Demonstration website created for 
+            learning purposes. 
+        </p> 
+    </div> 
+  
+
+@media (max-width: 520px) { .cards { grid-template-columns: 1fr; } } 
+
+ 
